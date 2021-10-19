@@ -1,4 +1,4 @@
-<h1>New Event</h1>
+<h1>Edit Event</h1>
 
 <%= form_with model: @event do |form| %>
   <%= form.label :title %>
@@ -7,5 +7,5 @@
   <%= form.datetime_select :date %>
   <%= form.label :location %>
   <%= form.text_field :location %>
-  <%= form.submit "Create" %>
+  <%= form.submit "Submit" %>
 <% end %>
