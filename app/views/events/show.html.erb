@@ -1,3 +1,5 @@
+<%= button_to "back to events page", events_path, method: :get  %>
+
 <h1><%= @event.title %></h1>
 
 <p>Date: <%= @event.date %></p>
@@ -5,3 +7,16 @@
 <p>Location: <%= @event.location %></p>
 
 <p>Creator: <%= @event.creator.username %>
+
+<p>Attendees: </p>
+  <ul>
+    <% @event.attendees.each do |attendee| %>
+      <li>
+        <%= attendee.username %>
+      </li>
+    <% end %>
+  </ul>
+
+<% if current_user != @event.creator %>
+  <%= button_to "I am attending this event.", event_attendees_path, params: { event_id: @event.id, attendee_id: current_user.id }%>
+<% end %>

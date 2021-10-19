@@ -9,3 +9,14 @@
     </li>
   <% end %>
 </ul>
+
+<% if !user_signed_in? %>
+  <%= button_to "login", new_user_session_path, method: :get  %>
+<% end %>
+
+<% if user_signed_in? %>
+  <%= button_to "create event", new_event_path, method: :get  %>
+  <%= button_to "logout", destroy_user_session_path, method: :delete  %>
+<% end %>
+
+<%= button_to "see all users", users_path, method: :get  %>
